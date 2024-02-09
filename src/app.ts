@@ -19,14 +19,17 @@ config({
 });
 
 const port = process.env.PORT || 4005;
-const mongoURI = process.env.MONGO_URI || "";
-// const stripeKey = process.env.STRIPE_KEY || "";
-const stripeKey ="sk_test_51OawEiSEI7QCVSjZu5FhZwsQcbU8x0oJFwkF5U9L8OSw52ryj6dL4AmtdppQmdhIETdInL1vu7OquAx7VHeTThD900KSbAS8vF " ||
+// const mongoURI = process.env.MONGO_URI || "";
+const mongoURI =
+  process.env.MONGO_URI ||
+  " mongodb+srv://ecommerce:ibrahimrehman123@cluster0.gdvrbrc.mongodb.net/";
+const STRIPE_KEY =
+  "sk_test_51OawEiSEI7QCVSjZu5FhZwsQcbU8x0oJFwkF5U9L8OSw52ryj6dL4AmtdppQmdhIETdInL1vu7OquAx7VHeTThD900KSbAS8vF " ||
   "";
 
 connectDB(mongoURI);
 
-export const stripe = new Stripe(stripeKey);
+export const stripe = new Stripe(STRIPE_KEY);
 export const myCache = new NodeCache();
 
 const app = express();
